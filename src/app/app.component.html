@@ -1,4 +1,5 @@
-<h1>Bank Statement Analyzer</h1>
+<h1>Cash'em</h1>
+<p>The bridge is yours, you have the helm. Navigate your spendings</p>
 <hr>
 
 <!-- Buttons -->
@@ -32,43 +33,5 @@
   No transactions yet. Upload a bank statement to get started.
 </p>
 
-<!-- Search -->
-<div *ngIf="transactions.length > 0">
-  <input
-    type="text"
-    [(ngModel)]="searchQuery"
-    (input)="applyFilter()"
-    placeholder="Search by description..."
-  >
 
-  <!-- Filter result summary -->
-  <div *ngIf="searchQuery.trim() !== ''">
-    <p>Results for "{{ searchQuery }}": {{ filteredTransactions.length }} transactions</p>
-    <p>Total spent on this: {{ filteredTotalOut | currency:'INR':'symbol' }} ({{ filteredPercentage | number:'1.0-1' }}% of all spending)</p>
-  </div>
-
-  <!-- Transactions Table -->
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Description</th>
-        <th>Type</th>
-        <th>Amount</th>
-        <th>Balance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let t of filteredTransactions">
-        <td>{{ t.transactionDate }}</td>
-        <td>{{ t.description }}</td>
-        <td>{{ t.type }}</td>
-        <td>{{ t.amount | currency:'INR':'symbol' }}</td>
-        <td>{{ t.balance ? (t.balance | currency:'INR':'symbol') : '-' }}</td>
-      </tr>
-      <tr *ngIf="filteredTransactions.length === 0">
-        <td colspan="5">No transactions match your search.</td>
-      </tr>
-    </tbody>
-  </table>
 </div>

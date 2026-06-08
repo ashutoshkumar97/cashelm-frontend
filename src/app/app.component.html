@@ -8,30 +8,9 @@
   <input type="file" (change)="onFileSelected($event)" accept=".csv,.pdf">
 </label>
 
-<button (click)="clearData()" *ngIf="transactions.length > 0">
-  Clear Data
-</button>
-
-<hr>
-
 <!-- Messages -->
 <p *ngIf="isLoading">Loading...</p>
 <p *ngIf="uploadError">Error: {{ uploadError }}</p>
 <p *ngIf="successMessage">{{ successMessage }}</p>
-
-<!-- Summary -->
-<div *ngIf="transactions.length > 0">
-  <p>Total Transactions: {{ transactions.length }}</p>
-  <p>Money In: {{ totalIn | currency:'INR':'symbol' }}</p>
-  <p>Money Out: {{ totalOut | currency:'INR':'symbol' }}</p>
-</div>
-
-<hr>
-
-<!-- Empty state -->
-<p *ngIf="transactions.length === 0 && !isLoading">
-  No transactions yet. Upload a bank statement to get started.
-</p>
-
 
 </div>

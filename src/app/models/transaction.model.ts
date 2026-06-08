@@ -1,10 +1,9 @@
 export interface Transaction {
     id: number;
-    transactionDate: string;
+    date: string;
     description: string;
     amount: number;
-    type: string;
+    type: 'DEBIT' | 'CREDIT';
     balance: number;
     remark: string;
-    isSelected: boolean;
 }

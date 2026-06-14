@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TransactionService } from './transaction.service';
+import { TransactionService } from './services/transaction.service';
 
 @Component({
   selector: 'app-root',
